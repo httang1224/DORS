@@ -12,7 +12,7 @@ import torch
 from diffusers.utils import load_image
 from PIL import Image
 
-from atten_processor import CoreProcessor, register_attention_editor_diffusers
+from dar_processor import DynamicAttentionRouting, register_attention_editor_diffusers
 from dors_utils import (
     MaskRegionBuilder,
     blended_func,
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     ).to(DEVICE)
 
     # DORS is applied to the up-block transformer layers.
-    editor_common = CoreProcessor(start_layer=34, end_layer=70)
+    editor_common = DynamicAttentionRouting(start_layer=34, end_layer=70)
 
     register_attention_editor_diffusers(pipe.unet, editor_common)
 

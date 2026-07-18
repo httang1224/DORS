@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 # Author  : HaiTong
 # Time    : 2026/7/17 15:58
-# File    : atten_processor.py
+# File    : dar_processor.py
 # Software: PyCharm
 
 
@@ -133,7 +133,7 @@ def register_attention_editor_diffusers(unet, editor: AttentionBase):
     editor.num_att_layers = cross_att_count  # 140
 
 
-class CoreProcessor(AttentionBase):
+class DynamicAttentionRouting(AttentionBase):
 
     @staticmethod
     def get_empty_step_store(save_timesteps=None):
