@@ -32,8 +32,8 @@ For a detailed method overview and additional experimental results, visit our [p
 - **DOR-Bench.** We introduce a dedicated benchmark for evaluating object removal in challenging dense scenes. The benchmark will be released separately.
 
 ## 📢 News
-
-- **2026-07-19:** The DORS code and [project page](https://httang1224.github.io/DORS/) are publicly available.
+- **2026-07-18:** The DORS code is publicly available.
+- **2026-07-19:** The DORS [project page](https://httang1224.github.io/DORS/) is publicly available.
 - **Coming soon:** Paper, arXiv preprint, and DOR-Bench.
 
 ## 🧠 Method Overview
