@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="DORS: Dynamic Attention Routing for Diffusion-based Object Removal in Dense Scenes."
+    />
+    <title>DORS - Dynamic Attention Routing for Object Removal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="top">
+      <header class="hero section">
+        <div class="hero-inner">
+          <h1>
+            <span class="title-line"><span class="brand">DORS</span>: Dynamic Attention Routing for</span>
+            <span class="title-line">Diffusion-based Object Removal in Dense Scenes</span>
+          </h1>
+
+          <div class="authors" aria-label="Authors">
+            <a href="mailto:httang1224@gmail.com">Haitong Tang</a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:hpliu_hfut@hotmail.com">Haipeng Liu<sup>✉</sup></a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:yangwang@hfut.edu.cn">Yang Wang<sup>✉</sup></a>
+          </div>
+          <p class="affiliation">Hefei University of Technology</p>
+          <p class="corresponding">✉ Corresponding authors</p>
+          <p class="venue">ACM MM 2026</p>
+
+          <nav class="actions" aria-label="Project links">
+            <span class="button disabled" aria-disabled="true" title="The paper link will be added later">
+              <img class="button-icon" src="assets/icons/file-earmark-pdf-fill.svg" alt="" aria-hidden="true" />
+              <span>Paper · soon</span>
+            </span>
+            <span class="button disabled arxiv-button" aria-disabled="true" title="The arXiv link will be added later">
+              <img class="button-icon" src="assets/icons/arxiv.svg" alt="" aria-hidden="true" />
+              <span>arXiv · soon</span>
+            </span>
+            <span class="button disabled benchmark-button" aria-disabled="true" title="The DOR-Benchmark link will be added later">
+              <img class="button-icon" src="assets/icons/database-fill.svg" alt="" aria-hidden="true" />
+              <span>DOR-Benchmark · soon</span>
+            </span>
+            <a class="button" href="https://github.com/httang1224/DORS" target="_blank" rel="noreferrer">
+              <img class="button-icon" src="assets/icons/github.svg" alt="" aria-hidden="true" />
+              <span>Code</span>
+            </a>
+            <a class="button" href="#bibtex">
+              <img class="button-icon" src="assets/icons/quote.svg" alt="" aria-hidden="true" />
+              <span>BibTeX</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="teaser section" aria-label="Main qualitative comparison">
+        <div class="wide-container">
+          <figure class="figure-card">
+            <img
+              src="assets/teaser.jpg"
+              width="1785"
+              height="838"
+              alt="DORS compared with object removal baselines in dense scenes"
+            />
+            <figcaption>
+              <strong>Fig. 1.</strong> Object removal in dense scenes containing multiple similar instances remains challenging for
+              state-of-the-art methods, which often fail to completely erase the target instance and leave residual artifacts, as
+              highlighted by the green bounding boxes. In contrast, our training-free, plug-and-play DORS leverages a dynamic
+              attention routing mechanism to fully remove the target instance while producing cleaner and more coherent results.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section soft" id="abstract">
+        <div class="text-container">
+          <div class="section-title">
+            <p class="eyebrow">The idea</p>
+            <h2>Abstract</h2>
+            <span aria-hidden="true"></span>
+          </div>
+          <p class="abstract">
+            Object removal aims to eliminate target objects specified by a mask while preserving visual consistency with the
+            surrounding regions. Existing methods typically rely on contextual information from surrounding regions. However,
+            in dense scenes where the surrounding regions contain instances visually similar to the removal target, such reliance
+            often leads to semantic interference, resulting in incomplete removal. This problem arises from erroneous information
+            propagation in the attention space, where masked queries tend to align with such instances due to global similarity
+            matching in self-attention. To address this challenge, we propose a
+            <u><strong>D</strong></u>iffusion-based <u><strong>O</strong></u>bject
+            <u><strong>R</strong></u>emoval framework for dense <u><strong>S</strong></u>cenes, dubbed <strong>DORS</strong>, built
+            upon a <em>Dynamic Attention Routing</em> mechanism comprising two complementary components:
+            <em>Instance-Filtered Attention</em> (IFA), which suppresses misleading semantic information from similar instances
+            through dynamically constructed mask-guided attention constraints, and <em>Context-Guided Routing</em> (CGR), which
+            dynamically routes complementary scene information to maintain visual consistency. We further introduce DOR-Bench,
+            a benchmark tailored for object removal in dense scenes. Extensive experiments demonstrate that
+            <strong>DORS</strong> outperforms state-of-the-art methods, particularly in reducing incomplete removal and duplicate
+            artifacts.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="method">
+        <div class="content-container">
+          <div class="section-title">
+            <p class="eyebrow">Shield misleading semantics. Bridge valid context.</p>
+            <h2>How DORS Works</h2>
+            <span aria-hidden="true"></span>
+          </div>
+
+          <figure class="figure-card method-figure">
+            <img
+              src="assets/framework.png"
+              width="4652"
+              height="3639"
+              loading="lazy"
+              alt="The complete DORS dynamic attention routing framework"
+            />
+            <figcaption>
+              <strong>Fig. 2.</strong> Overview of <strong>DORS</strong>. It introduces a plug-and-play Dynamic Attention Routing
+              (DAR) mechanism into the denoising process, comprising Instance-Filtered Attention (IFA) and Context-Guided Routing
+              (CGR). The former dynamically constructs mask-guided constraints to suppress similar-instance interference, while
+              the latter dynamically routes information between the filtered and full-context pathways based on global density
+              and local geometry. For clarity, mask resizing is simplified.
+            </figcaption>
+          </figure>
+
+          <div class="method-intro">
+            <p>
+              <strong>Motivation.</strong> Most diffusion-based object removal methods reconstruct masked regions through
+              unconstrained global context aggregation. In dense scenes, self-attention can cause masked queries to match visually
+              similar instances outside the mask, propagating target semantics back into the removal region. We call this failure
+              mode <em>instance interference</em>; it leads to incomplete removal, duplicated structures, and visual artifacts.
+            </p>
+            <p>
+              <strong>Overview.</strong> DORS reframes dense-scene object removal as controlled information routing in
+              self-attention. Its plug-and-play Dynamic Attention Routing (DAR) mechanism combines IFA, which shields the masked
+              region from misleading target-similar semantics, with CGR, which restores useful structural context through
+              density- and geometry-aware fusion. DAR is applied during early denoising to establish global structure and relaxed
+              in later steps for detail refinement.
+            </p>
+          </div>
+
+          <div class="component-grid">
+            <article class="component-card ifa">
+              <span class="number" aria-hidden="true">01</span>
+              <p class="tag">Semantic shield</p>
+              <h3>Instance-Filtered Attention (IFA)</h3>
+              <p>
+                IFA uses the target removal region as a visual prompt for SAM3 to identify target-similar instances and align their
+                masks with the attention resolution. It adds a large negative bias that prevents masked queries from attending to
+                both the removal mask and the detected similar-instance regions, so they aggregate information only from
+                non-similar context. This input-adaptive pruning is limited to masked queries, preserving information flow within
+                the unmasked background.
+              </p>
+            </article>
+            <article class="component-card cgr">
+              <span class="number" aria-hidden="true">02</span>
+              <p class="tag">Context bridge</p>
+              <h3>Context-Guided Routing (CGR)</h3>
+              <p>
+                Because IFA can suppress useful structural cues together with misleading semantics, CGR maintains two
+                complementary attention pathways: full-context and instance-filtered. At each masked location, a spatially
+                adaptive weight derived from global similar-instance density and local distance favors full context in nearby
+                regions for structural continuity, while progressively favoring filtered information farther away to reduce
+                semantic interference. Their weighted fusion balances coherent reconstruction with instance-aware suppression.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="qualitative-results">
+        <div class="wide-container">
+          <div class="section-title">
+            <p class="eyebrow">Qualitative results</p>
+            <h2>Object Removal on DOR-Bench</h2>
+            <span aria-hidden="true"></span>
+          </div>
+          <figure class="figure-card">
+            <img
+              src="assets/qualitative-dor-bench.jpg"
+              width="2365"
+              height="1088"
+              loading="lazy"
+              alt="Qualitative comparison of DORS with state-of-the-art object removal methods on DOR-Bench"
+            />
+            <figcaption>
+              <strong>Fig. 3.</strong> Qualitative comparison of object removal results in DOR-Bench, our method
+              (<strong>DORS</strong>) achieves more accurate target removal while better preserving structural and semantic
+              consistency, resulting in cleaner and more realistic outputs.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="results">
+        <div class="wide-container">
+          <div class="section-title">
+            <p class="eyebrow">Quantitative results</p>
+            <h2>Comparison on DOR-Bench</h2>
+            <span aria-hidden="true"></span>
+          </div>
+          <figure class="figure-card table-figure">
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable quantitative comparison table">
+              <img
+                src="assets/quantitative-dor-bench.png"
+                width="1640"
+                height="750"
+                loading="lazy"
+                alt="Table 1: quantitative comparison with state-of-the-art methods on DOR-Bench"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section soft" id="bibtex">
+        <div class="text-container">
+          <div class="section-title">
+            <p class="eyebrow">Reference</p>
+            <h2>BibTeX</h2>
+            <span aria-hidden="true"></span>
+          </div>
+          <div class="code-block">
+            <button id="copy-button" type="button">Copy</button>
+            <pre><code id="bibtex-code">@inproceedings{tang2026dors,
+  title     = {{DORS}: Dynamic Attention Routing for Diffusion-based
+               Object Removal in Dense Scenes},
+  author    = {Tang, Haitong and Liu, Haipeng and Wang, Yang},
+  booktitle = {Proceedings of the 34th ACM International Conference
+               on Multimedia},
+  year      = {2026}
+}</code></pre>
+          </div>
+          <p class="note">The arXiv identifier will be added after publication.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 DORS authors · Hefei University of Technology</p>
+    </footer>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+
+    <script>
+      const copyButton = document.querySelector("#copy-button");
+      const bibtexCode = document.querySelector("#bibtex-code");
+
+      copyButton.addEventListener("click", async () => {
+        const value = bibtexCode.textContent;
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch {
+          const textArea = document.createElement("textarea");
+          textArea.value = value;
+          textArea.style.position = "fixed";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          textArea.remove();
+        }
+        copyButton.textContent = "Copied!";
+        window.setTimeout(() => {
+          copyButton.textContent = "Copy";
+        }, 1600);
+      });
+    </script>
+  </body>
+</html>
