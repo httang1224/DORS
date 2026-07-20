@@ -4,7 +4,7 @@
 
 **ACM Multimedia 2026**
 
-[Haitong Tang](mailto:httang1224@gmail.com) · [Haipeng Liu](mailto:hpliu_hfut@hotmail.com) · [Yang Wang](mailto:yangwang@hfut.edu.cn)  
+[Haitong Tang](https://scholar.google.com/citations?user=oG7-rK4AAAAJ&hl=en) · [Haipeng Liu](https://scholar.google.com/citations?user=Xw0l6x8AAAAJ&hl=en) · [Yang Wang](https://scholar.google.com/citations?user=uzljmU8AAAAJ&hl=en)<br>
 Hefei University of Technology
 
 [![Project Page](https://img.shields.io/badge/Project-Page-1F6FEB.svg)](https://httang1224.github.io/DORS/)
@@ -125,6 +125,10 @@ The script will:
 
 DORS produces cleaner object removal results in dense scenes, with fewer target remnants and duplicate structures caused by nearby similar instances. Qualitative examples and quantitative comparisons on DOR-Bench are available on the [project page](https://httang1224.github.io/DORS/).
 
+## 📬 Contact
+
+For questions about the code or paper, please contact [Haitong Tang](mailto:httang1224@gmail.com).
+
 ## 📝 Citation
 
 If you find this work useful for your research, please consider citing:
@@ -143,7 +147,3 @@ If you find this work useful for your research, please consider citing:
 ## 🙏 Acknowledgements
 
 This implementation builds upon [Hugging Face Diffusers](https://github.com/huggingface/diffusers), [Stable Diffusion XL Inpainting](https://huggingface.co/diffusers/stable-diffusion-xl-1.0-inpainting-0.1), [SAM3](https://github.com/facebookresearch/sam3), and [AttentiveEraser](https://github.com/Alibaba-VELLDEPTH/AttentiveEraser). We thank the authors and maintainers of these projects for making their work publicly available.
-
-## 📬 Contact
-
-For questions about the code or paper, please contact [Haitong Tang](mailto:httang1224@gmail.com).
