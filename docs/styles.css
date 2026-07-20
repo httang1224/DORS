@@ -198,10 +198,6 @@ h1 {
   filter: brightness(0) invert(1);
 }
 
-.benchmark-button {
-  min-width: 205px;
-}
-
 .arxiv-button {
   min-width: 145px;
 }
@@ -565,10 +561,6 @@ footer a {
 
   .button {
     min-width: 0;
-  }
-
-  .actions .benchmark-button {
-    grid-column: 1 / -1;
   }
 
   .teaser {

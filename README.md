@@ -12,7 +12,7 @@ Hefei University of Technology
 
 ![Paper](https://img.shields.io/badge/Paper-Coming_Soon-6E7781.svg?logo=adobeacrobatreader&logoColor=white)
 ![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-6E7781.svg?logo=arxiv&logoColor=white)
-![DOR-Bench](https://img.shields.io/badge/DOR--Bench-Coming_Soon-6E7781.svg?logo=huggingface&logoColor=white)
+[![DOR-Bench](https://img.shields.io/badge/DOR--Bench-Hugging_Face-FFD21E.svg?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/qc1752/DOR-Bench)
 
 </div>
 
@@ -29,12 +29,13 @@ For a detailed method overview and additional experimental results, visit our [p
 - **Dense-scene object removal.** DORS mitigates incomplete removal and duplicate artifacts caused by interference from nearby similar instances.
 - **Dynamic Attention Routing.** Our mechanism combines Instance-Filtered Attention (IFA) and Context-Guided Routing (CGR) to suppress misleading semantics while preserving useful contextual information.
 - **Training-free and plug-and-play.** DORS operates entirely at inference time and requires no additional training or fine-tuning.
-- **DOR-Bench.** We introduce a dedicated benchmark for evaluating object removal in challenging dense scenes. The benchmark will be released separately.
+- **DOR-Bench.** We introduce a dedicated benchmark for evaluating object removal in challenging dense scenes, publicly available on [Hugging Face](https://huggingface.co/datasets/qc1752/DOR-Bench).
 
 ## 📢 News
-- **2026-07-18:** The DORS code is publicly available.
-- **2026-07-19:** The DORS [project page](https://httang1224.github.io/DORS/) is publicly available.
-- **Coming soon:** Paper, arXiv preprint, and DOR-Bench.
+- **2026-07-20:** [DOR-Bench](https://huggingface.co/datasets/qc1752/DOR-Bench) is now available on Hugging Face.
+- **2026-07-19:** The DORS [project page](https://httang1224.github.io/DORS/) is now live.
+- **2026-07-18:** The official DORS implementation has been released.
+- **Coming soon:** Paper and arXiv preprint.
 
 ## 🧠 Method Overview
 
