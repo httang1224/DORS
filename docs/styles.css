@@ -173,7 +173,6 @@ h1 {
 
 .button {
   display: inline-flex;
-  min-width: 122px;
   min-height: 48px;
   align-items: center;
   justify-content: center;
@@ -196,10 +195,6 @@ h1 {
   width: 20px;
   height: 20px;
   filter: brightness(0) invert(1);
-}
-
-.arxiv-button {
-  min-width: 145px;
 }
 
 .button:hover,
@@ -560,7 +555,7 @@ footer a {
   }
 
   .button {
-    min-width: 0;
+    width: 100%;
   }
 
   .teaser {

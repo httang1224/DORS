@@ -7,12 +7,7 @@
 [Haitong Tang](https://scholar.google.com/citations?user=oG7-rK4AAAAJ&hl=en) · [Haipeng Liu](https://scholar.google.com/citations?user=Xw0l6x8AAAAJ&hl=en) · [Yang Wang](https://scholar.google.com/citations?user=uzljmU8AAAAJ&hl=en)<br>
 Hefei University of Technology
 
-[![Project Page](https://img.shields.io/badge/Project-Page-1F6FEB.svg)](https://httang1224.github.io/DORS/)
-[![GitHub stars](https://img.shields.io/github/stars/httang1224/DORS?style=flat&logo=github)](https://github.com/httang1224/DORS)
-
-![Paper](https://img.shields.io/badge/Paper-Coming_Soon-6E7781.svg?logo=adobeacrobatreader&logoColor=white)
-![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-6E7781.svg?logo=arxiv&logoColor=white)
-[![DOR-Bench](https://img.shields.io/badge/DOR--Bench-Hugging_Face-FFD21E.svg?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/qc1752/DOR-Bench)
+[![Project Page](https://img.shields.io/badge/Project-Page-1F6FEB.svg)](https://httang1224.github.io/DORS/)&nbsp;&nbsp;[![arXiv](https://img.shields.io/badge/arXiv-2607.16656-B31B1B.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2607.16656)&nbsp;&nbsp;[![Paper](https://img.shields.io/badge/Paper-PDF-B31B1B.svg?logo=adobeacrobatreader&logoColor=white)](https://arxiv.org/pdf/2607.16656)&nbsp;&nbsp;[![DOR-Bench](https://img.shields.io/badge/DOR--Bench-Hugging_Face-FFD21E.svg?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/qc1752/DOR-Bench)&nbsp;&nbsp;[![GitHub stars](https://img.shields.io/github/stars/httang1224/DORS?style=flat&logo=github)](https://github.com/httang1224/DORS)
 
 </div>
 
@@ -32,10 +27,10 @@ For a detailed method overview and additional experimental results, visit our [p
 - **DOR-Bench.** We introduce a dedicated benchmark for evaluating object removal in challenging dense scenes, publicly available on [Hugging Face](https://huggingface.co/datasets/qc1752/DOR-Bench).
 
 ## 📢 News
+- **2026-07-21:** The DORS [arXiv preprint](https://arxiv.org/abs/2607.16656) is now available.
 - **2026-07-20:** [DOR-Bench](https://huggingface.co/datasets/qc1752/DOR-Bench) is now available on Hugging Face.
 - **2026-07-19:** The DORS [project page](https://httang1224.github.io/DORS/) is now live.
 - **2026-07-18:** The official DORS implementation has been released.
-- **Coming soon:** Paper and arXiv preprint.
 
 ## 🧠 Method Overview
 
@@ -135,12 +130,11 @@ For questions about the code or paper, please contact [Haitong Tang](mailto:htta
 If you find this work useful for your research, please consider citing:
 
 ```bibtex
-@inproceedings{tang2026dors,
+@article{tang2026dors,
   title     = {{DORS}: Dynamic Attention Routing for Diffusion-based
                Object Removal in Dense Scenes},
   author    = {Tang, Haitong and Liu, Haipeng and Wang, Yang},
-  booktitle = {Proceedings of the 34th ACM International Conference
-               on Multimedia},
+  journal   = {arXiv preprint arXiv:2607.16656},
   year      = {2026}
 }
 ```
