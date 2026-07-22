@@ -7,7 +7,7 @@
 [Haitong Tang](https://scholar.google.com/citations?user=oG7-rK4AAAAJ&hl=en) · [Haipeng Liu](https://scholar.google.com/citations?user=Xw0l6x8AAAAJ&hl=en) · [Yang Wang](https://scholar.google.com/citations?user=uzljmU8AAAAJ&hl=en)<br>
 Hefei University of Technology
 
-[![Project Page](https://img.shields.io/badge/Project-Page-1F6FEB.svg)](https://httang1224.github.io/DORS/)&nbsp;&nbsp;[![arXiv](https://img.shields.io/badge/arXiv-2607.16656-B31B1B.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2607.16656)&nbsp;&nbsp;[![Paper](https://img.shields.io/badge/Paper-PDF-B31B1B.svg?logo=adobeacrobatreader&logoColor=white)](https://arxiv.org/pdf/2607.16656)&nbsp;&nbsp;[![DOR-Bench](https://img.shields.io/badge/DOR--Bench-Hugging_Face-FFD21E.svg?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/qc1752/DOR-Bench)&nbsp;&nbsp;[![GitHub stars](https://img.shields.io/github/stars/httang1224/DORS?style=flat&logo=github)](https://github.com/httang1224/DORS)
+[![Project Page](https://img.shields.io/badge/Project-Page-1F6FEB.svg)](https://httang1224.github.io/DORS/)&nbsp;&nbsp;[![arXiv](https://img.shields.io/badge/arXiv-2607.16656-B31B1B.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2607.16656)&nbsp;&nbsp;[![Paper](https://img.shields.io/badge/Paper-PDF-B31B1B.svg?logo=adobeacrobatreader&logoColor=white)](https://arxiv.org/pdf/2607.16656)&nbsp;&nbsp;[![DOR-Bench](https://img.shields.io/badge/Hugging_Face-DOR--Bench-D4A900.svg?logo=huggingface&logoColor=FFD21E)](https://huggingface.co/datasets/qc1752/DOR-Bench)&nbsp;&nbsp;[![GitHub stars](https://img.shields.io/github/stars/httang1224/DORS?style=flat&logo=github)](https://github.com/httang1224/DORS)
 
 </div>
 
