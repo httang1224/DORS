@@ -15,11 +15,6 @@ env/
 # Generated outputs
 outputs/
 
-# Local development files
-/Final_modify_image_masks/
-/run_inference_dor.py
-/run_inference_show.py
-
 # SAM3 source is downloaded separately
 sam3/
 sam3_official/

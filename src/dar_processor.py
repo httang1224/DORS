@@ -13,6 +13,8 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
+from .utils import _load_mask
+
 
 class AttentionBase:
     def __init__(self):
@@ -226,7 +228,6 @@ class DynamicAttentionRouting(AttentionBase):
             }
 
         self.mask_builder = mask_builder
-        from dors_utils import _load_mask
 
         self.distance_pyramid_mask = self._build_D_pyramid_mask(
             mask=_load_mask(mask_pil), vis=visualize, inversion=False, plateau=True

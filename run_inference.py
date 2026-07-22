@@ -11,16 +11,19 @@ import torch
 from diffusers.utils import load_image
 from PIL import Image
 
-from dar_processor import DynamicAttentionRouting, register_attention_editor_diffusers
-from dors_utils import (
+from src.dar_processor import (
+    DynamicAttentionRouting,
+    register_attention_editor_diffusers,
+)
+from src.pipeline_dors import DORSPipeline
+from src.sam_processor import SAM3
+from src.utils import (
     MaskRegionBuilder,
     blended_func,
     build_weight_inner_v2,
     dilate_by_area,
     set_seed,
 )
-from pipeline_dors import DORSPipeline
-from sam_processor import SAM3
 
 GREEN = "\033[32m"
 RESET = "\033[0m"
