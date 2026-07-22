@@ -27,6 +27,7 @@ For a detailed method overview and additional experimental results, visit our [p
 - **DOR-Bench.** We introduce a dedicated benchmark for evaluating object removal in challenging dense scenes, publicly available on [Hugging Face](https://huggingface.co/datasets/qc1752/DOR-Bench).
 
 ## 📢 News
+- **2026-07-22:** Ready-to-run inference examples are now available.
 - **2026-07-21:** The DORS [arXiv preprint](https://arxiv.org/abs/2607.16656) is now available.
 - **2026-07-20:** [DOR-Bench](https://huggingface.co/datasets/qc1752/DOR-Bench) is now available on Hugging Face.
 - **2026-07-19:** The DORS [project page](https://httang1224.github.io/DORS/) is now live.
@@ -87,16 +88,20 @@ SAM3_MODEL_ID = "/path/to/sam3.pt"
 
 ## 🚀 Quick Start
 
-### 🖼️ 1. Set the input paths
+### 🖼️ 1. Try a bundled example
 
-Edit the following values in `run_inference.py`:
+The repository includes three image-mask pairs under `examples/`. By default,
+`run_inference.py` uses `sample_01.png`:
 
 ```python
-IMAGE_PATH = "/path/to/source_image.png"
-MASK_PATH = "/path/to/source_mask.png"
+IMAGE_PATH = os.path.join(SCRIPT_DIR, "examples", "images", "sample_01.png")
+MASK_PATH = os.path.join(SCRIPT_DIR, "examples", "masks", "sample_01.png")
 ```
 
-The image and mask must be spatially aligned. In the input mask:
+You can switch both filenames to `sample_02.png` or `sample_03.png` to run the
+other examples. To process your own image, replace `IMAGE_PATH` and `MASK_PATH`
+with the corresponding file paths. The image and mask must be spatially aligned.
+In the input mask:
 
 - white pixels specify the target region to remove;
 - black pixels specify the region to preserve.
@@ -114,8 +119,7 @@ The script will:
 - load the SDXL inpainting pipeline and register Dynamic Attention Routing;
 - use SAM3 to identify instances similar to the removal target;
 - perform object removal at the configured resolution;
-- blend the reconstructed region with the source image;
-- save the final result to `outputs/<mask-filename>`.
+- save the result to `outputs/<image-filename>`.
 
 ## 📊 Results
 
